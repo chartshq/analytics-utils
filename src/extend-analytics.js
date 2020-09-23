@@ -3,6 +3,7 @@
  *
  * It
  *  - makes the `analytics.track()` function to be able to handle functional payload.
+ *  - makes the analytics.page()` function to be able to handle functional page path.
  *  - accepts an optional `extraProp` param which will be attached to the event properties.
  */
 export default function extendAnalytics(analyticsObj, extraProp) {
