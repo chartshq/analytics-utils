@@ -1,9 +1,13 @@
 /**
  * An helper function to extend `analytics` object from GetAnalytics(https://getanalytics.io/).
- * It makes the `analytics.track()` function to handle functional payload and
- * it also accepts an optional `category` param which will be attached to the event properties.
+ *
+ * It
+ *  - makes the `analytics.track()` function to be able to handle functional payload.
+ *  - accepts an optional `extraProp` param which will be attached to the event properties.
  */
-export default function extendAnalytics(analyticsObj, category) {
+export default function extendAnalytics(analyticsObj, extraProp) {
+  extraProp = extraProp || {};
+
   const originalTrackFn = analyticsObj.track.bind(analyticsObj);
 
   analyticsObj.track = (eventName, payload) => {
@@ -22,11 +26,7 @@ export default function extendAnalytics(analyticsObj, category) {
       }
     }
 
-    if (category) {
-      originalTrackFn(eventName, { Category: category, ...payload });
-    } else {
-      originalTrackFn(eventName, { ...payload });
-    }
+    originalTrackFn(eventName, { ...payload, ...extraProp });
   };
 
   return analyticsObj;
