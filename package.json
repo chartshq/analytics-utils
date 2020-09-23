@@ -1,5 +1,5 @@
 {
-  "name": "analytics-utils",
+  "name": "@chartshq/analytics-utils",
   "version": "1.0.0",
   "description": "Contains some utility methods for analytics used in Explore, Gallery and other charts.com products.",
   "main": "index.js",
