@@ -6,9 +6,8 @@
  *  - accepts an optional `extraProp` param which will be attached to the event properties.
  */
 export default function extendAnalytics(analyticsObj, extraProp) {
-  extraProp = extraProp || {};
-
   const originalTrackFn = analyticsObj.track.bind(analyticsObj);
+  const originalPageFn = analyticsObj.page.bind(analyticsObj);
 
   analyticsObj.track = (eventName, payload) => {
     payload = payload || {};
@@ -26,7 +25,25 @@ export default function extendAnalytics(analyticsObj, extraProp) {
       }
     }
 
-    originalTrackFn(eventName, { ...payload, ...extraProp });
+    originalTrackFn(eventName, { ...payload, ...(extraProp || {}) });
+  };
+
+  analyticsObj.page = (pagePath) => {
+    if (typeof pagePath === 'function') {
+      try {
+        pagePath = pagePath();
+      } catch (err) {
+        // eslint-disable-next-line
+        console.error(err);
+        pagePath = '';
+      }
+    }
+
+    if (pagePath) {
+      originalPageFn({ path: pagePath });
+    } else {
+      originalPageFn();
+    }
   };
 
   return analyticsObj;
