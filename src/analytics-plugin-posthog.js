@@ -19,6 +19,10 @@ export default function analyticsPluginPostHog({ token, apiHost }) {
       isLoaded = true;
     },
 
+    page: () => {
+      posthog.capture('$pageview');
+    },
+
     track: ({ payload: { event, properties } }) => {
       posthog.capture(event, { ...properties });
     },
