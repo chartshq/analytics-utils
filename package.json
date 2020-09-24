@@ -1,12 +1,12 @@
 {
   "name": "@chartshq/analytics-utils",
   "version": "1.0.0",
-  "description": "Contains some utility methods for analytics used in Explore, Gallery and other charts.com products.",
+  "description": "Contains some utility methods to work with analytics.",
   "main": "index.js",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/dev-chartshq/analytics-utils.git"
+    "url": "git+ssh://git@github.com:chartshq/analytics-utils.git"
   },
   "keywords": [
     "analytics",
@@ -16,7 +16,7 @@
   ],
   "author": "Charts.com",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/dev-chartshq/analytics-utils#readme",
+  "homepage": "https://github.com/chartshq/analytics-utils",
   "dependencies": {
     "posthog-js": "^1.4.5"
   },
