@@ -2,8 +2,10 @@
   "name": "@chartshq/analytics-utils",
   "version": "1.0.0",
   "description": "Contains some utility methods to work with analytics.",
-  "main": "index.js",
-  "scripts": {},
+  "main": "./dist/umd.js",
+  "scripts": {
+    "build": "webpack --mode production"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com:chartshq/analytics-utils.git"
@@ -21,8 +23,13 @@
     "posthog-js": "^1.4.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-loader": "^8.1.0",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
